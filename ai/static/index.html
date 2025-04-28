@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerCompass AI | Your AI Career Guidance Partner</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-compass"></i>
+                <h1>CareerCompass<span>AI</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#explore">Explore Careers</a></li>
+                    <li><a href="#assessment">Career Assessment</a></li>
+                    <li><a href="#comparison">Compare Careers</a></li>
+                    <li><a href="#chat">AI Chat</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1>Discover Your <span>Ideal Career Path</span> with AI</h1>
+                    <p>Get personalized career guidance powered by advanced AI technology. Find the perfect career match based on your education, skills, and interests.</p>
+                    <div class="cta-buttons">
+                        <button id="start-assessment" class="btn primary">Start Career Assessment</button>
+                        <button id="chat-with-ai" class="btn secondary">Chat with AI Assistant</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/career-illustration.svg" alt="Career Guidance Illustration">
+                </div>
+            </section>
+
+            <!-- Career Explorer Section -->
+            <section id="explore" class="career-explorer">
+                <div class="section-header">
+                    <h2>Explore <span>Career Paths</span></h2>
+                    <p>Discover various career options across different industries</p>
+                </div>
+                <div class="career-categories">
+                    <div class="category" data-category="Technology">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Technology</h3>
+                    </div>
+                    <div class="category" data-category="Healthcare">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Healthcare</h3>
+                    </div>
+                    <div class="category" data-category="Business">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Business</h3>
+                    </div>
+                    <div class="category" data-category="Creative">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Creative</h3>
+                    </div>
+                    <div class="category" data-category="Education">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Education</h3>
+                    </div>
+                    <div class="category" data-category="Engineering">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Engineering</h3>
+                    </div>
+                </div>
+                <div id="career-results" class="career-results">
+                    <!-- Career cards will be populated here -->
+                </div>
+            </section>
+
+            <!-- Career Assessment Section -->
+            <section id="assessment" class="assessment">
+                <div class="section-header">
+                    <h2>Career <span>Assessment</span></h2>
+                    <p>Find your perfect career match based on your profile</p>
+                </div>
+                <div class="assessment-container">
+                    <div class="assessment-form">
+                        <h3>Tell us about yourself</h3>
+                        <form id="career-form">
+                            <div class="form-group">
+                                <label for="education">Education Background</label>
+                                <select id="education" name="education" required>
+                                    <option value="" disabled selected>Select your education field</option>
+                                    <!-- Options will be populated dynamically -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="interests">Your Interests (comma-separated)</label>
+                                <input type="text" id="interests" name="interests" placeholder="e.g., technology, design, problem-solving" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="skills">Your Skills (comma-separated)</label>
+                                <input type="text" id="skills" name="skills" placeholder="e.g., programming, communication, leadership">
+                            </div>
+                            <button type="submit" class="btn primary">Get Recommendations</button>
+                        </form>
+                    </div>
+                    <div class="assessment-results">
+                        <div id="results-loading" class="loading hidden">
+                            <div class="spinner"></div>
+                            <p>Analyzing your profile...</p>
+                        </div>
+                        <div id="results-container" class="hidden">
+                            <h3>Your Career Matches</h3>
+                            <div id="recommendation-results"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Career Comparison Section -->
+            <section id="comparison" class="comparison-section">
+                <div class="section-header">
+                    <h2>Compare <span>Careers</span></h2>
+                    <p>Compare different career paths to make informed decisions</p>
+                </div>
+                <div class="comparison-container">
+                    <div class="comparison-form">
+                        <h3>Select careers to compare</h3>
+                        <div class="career-selectors">
+                            <div class="career-select">
+                                <label for="career1">First Career</label>
+                                <select id="career1" class="career-dropdown">
+                                    <option value="" disabled selected>Select a career</option>
+                                    <!-- Options will be populated dynamically -->
+                                </select>
+                            </div>
+                            <div class="vs-badge">VS</div>
+                            <div class="career-select">
+                                <label for="career2">Second Career</label>
+                                <select id="career2" class="career-dropdown">
+                                    <option value="" disabled selected>Select a career</option>
+                                    <!-- Options will be populated dynamically -->
+                                </select>
+                            </div>
+                        </div>
+                        <button id="compare-btn" class="btn primary">Compare Careers</button>
+                    </div>
+                    
+                    <div class="comparison-results">
+                        <div id="comparison-loading" class="loading hidden">
+                            <div class="spinner"></div>
+                            <p>Comparing careers...</p>
+                        </div>
+                        <div id="comparison-container" class="hidden">
+                            <h3>Career Comparison</h3>
+                            <div class="comparison-table-container">
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Factors</th>
+                                            <th id="career1-header">Career 1</th>
+                                            <th id="career2-header">Career 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="comparison-table-body">
+                                        <!-- Comparison data will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="comparison-summary" class="comparison-summary"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Chat Section -->
+            <section id="chat" class="chat-section">
+                <div class="section-header">
+                    <h2>Chat with <span>Career AI</span></h2>
+                    <p>Get personalized career advice from our AI assistant</p>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message bot">
+                            <div class="avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>Hello! I'm your AI Career Assistant. How can I help you with your career journey today?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="user-message" placeholder="Ask about career paths, skills, or education...">
+                        <button id="send-message" class="btn primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about-section">
+                <div class="section-header">
+                    <h2>About <span>CareerCompass AI</span></h2>
+                    <p>Helping you navigate your career journey</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Mission</h3>
+                        <p>CareerCompass AI is dedicated to helping individuals discover their ideal career paths through the power of artificial intelligence. We believe everyone deserves a fulfilling career that aligns with their skills, interests, and values.</p>
+                        
+                        <h3>How It Works</h3>
+                        <p>Our platform uses advanced AI algorithms to analyze your profile and provide personalized career recommendations. We consider factors such as your educational background, interests, skills, and market demand to suggest the most suitable career options for you.</p>
+                        
+                        <h3>Features</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Personalized career recommendations</li>
+                            <li><i class="fas fa-check-circle"></i> AI-powered career chatbot</li>
+                            <li><i class="fas fa-check-circle"></i> Comprehensive career information</li>
+                            <li><i class="fas fa-check-circle"></i> Career path exploration</li>
+                            <li><i class="fas fa-check-circle"></i> Educational guidance</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/about-illustration.svg" alt="About CareerCompass AI">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-compass"></i>
+                    <h2>CareerCompass<span>AI</span></h2>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#explore">Explore Careers</a></li>
+                        <li><a href="#assessment">Career Assessment</a></li>
+                        <li><a href="#comparison">Compare Careers</a></li>
+                        <li><a href="#chat">AI Chat</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@careercompass.ai</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/posts/uhasreddy_ai-careerguidance-teamwork-activity-7320516186406809600-4aqV?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEM9K3gBQXzmHTgKjgzlDAiSiKsxf_vqT2A" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CareerCompass AI. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
